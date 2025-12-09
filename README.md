@@ -65,7 +65,7 @@
 
 ### **📌 南墨的技术小栈**
 
-<img src="README.assets\qrcode_for_gh_8be4598ab15d_1280.jpg" alt="qrcode_for_gh_8be4598ab15d_1280" style="zoom: 10%;" />
+<img src="README.assets\qrcode_for_gh_8be4598ab15d_1280.jpg" alt="qrcode_for_gh_8be4598ab15d_1280" width="30%" />
 
 你可以在公众号里得到：
 
