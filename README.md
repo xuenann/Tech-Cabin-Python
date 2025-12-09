@@ -25,7 +25,7 @@
 
 主要分享和解读 GitHub 上有趣的高星项目，包括：
 
-➡ **开源项目合集链接**：
+➡ **项目合集链接**：
 
 1. 
 
@@ -65,7 +65,7 @@
 
 ### **📌 南墨的技术小栈**
 
-<img src="README.assets\qrcode_for_gh_8be4598ab15d_1280.jpg" alt="qrcode_for_gh_8be4598ab15d_1280" style="zoom: 33%;" />
+<img src="README.assets\qrcode_for_gh_8be4598ab15d_1280.jpg" alt="qrcode_for_gh_8be4598ab15d_1280" style="zoom: 10%;" />
 
 你可以在公众号里得到：
 
