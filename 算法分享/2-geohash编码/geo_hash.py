@@ -286,17 +286,17 @@ def neighbours(geohash):
 
 def expanding(geohash,num):
     '''
-    搜索指定geohash周围num圈的geohash块
+    计算对指定geohash扩num圈后的所有geohash块
 
     :param geohash: geohash块
     :param num: 扩展圈数
-    :return: 结构列表
+    :return: 结果列表
     '''
-    if num==1:
+    if num==0:
         return [geohash]
     geo_list={geohash}
 
-    for _ in range(num-1):
+    for _ in range(num):
         for geo in list(geo_list):
             tmp=neighbours(geo)
             for t in tmp:

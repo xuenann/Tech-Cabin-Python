@@ -48,6 +48,7 @@
 ➡ **算法合集链接**：[点击查看](https://github.com/xuenann/Tech-Cabin-Python/tree/main/算法分享)
 
 1. 坐标系转换：[项目地址](https://github.com/xuenann/Tech-Cabin-Python/tree/main/%E7%AE%97%E6%B3%95%E5%88%86%E4%BA%AB/1-%E5%9D%90%E6%A0%87%E7%B3%BB%E8%BD%AC%E6%8D%A2)、[算法介绍](https://github.com/xuenann/Tech-Cabin-Python/blob/main/%E7%AE%97%E6%B3%95%E5%88%86%E4%BA%AB/1-%E5%9D%90%E6%A0%87%E7%B3%BB%E8%BD%AC%E6%8D%A2/1-%E5%9D%90%E6%A0%87%E7%B3%BB%E8%BD%AC%E6%8D%A2.md)
+1. geohash编码：[项目地址](https://github.com/xuenann/Tech-Cabin-Python/tree/main/%E7%AE%97%E6%B3%95%E5%88%86%E4%BA%AB/2-geohash%E7%BC%96%E7%A0%81)、[算法介绍](https://github.com/xuenann/Tech-Cabin-Python/blob/main/%E7%AE%97%E6%B3%95%E5%88%86%E4%BA%AB/2-geohash%E7%BC%96%E7%A0%81/2-geohash%E7%BC%96%E7%A0%81.md)
 
 
 

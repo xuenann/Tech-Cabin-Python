@@ -120,7 +120,7 @@ Geohash有一个著名的问题：边界效应。两个地理位置可能非常�
 
 geo_hash是我基于多个geohash实现工具，汇总了他们相关功能的纯python脚本
 
-- 代码链接：
+- 代码链接：[点击查看](https://github.com/xuenann/Tech-Cabin-Python/blob/main/%E7%AE%97%E6%B3%95%E5%88%86%E4%BA%AB/2-geohash%E7%BC%96%E7%A0%81/geo_hash.py)
 
 ```python
 import geo_hash
@@ -149,7 +149,7 @@ bounds = geo_hash.bounds("wm6nc")
 neighbours = geo_hash.neighbours("wm6nc")
 # Neighbours(n='wm6p1',ne='wm6p4',e='wm6nf',se='wm6nd',s='wm6n9',sw='wm6n8',w='wm6nb',nw='wm6p0')
 
-# 搜索指定geohash周围num圈的geohash块
+# 对指定geohash扩num圈的所有geohash块
 geohash_list = geo_hash.expanding("wm6nc",2)  
 # ['wm6nc', 'wm6p1', 'wm6p4', 'wm6nf', 'wm6nd', 'wm6n9', 'wm6n8', 'wm6nb', 'wm6p0']
 ```
