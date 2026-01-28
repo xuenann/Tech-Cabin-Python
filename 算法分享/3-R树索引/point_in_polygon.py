@@ -116,6 +116,18 @@ def point_in_polygon(point_lon, point_lat, polygon_coords):
         True: 点在多边形内
         False: 点不在多边形内
     """
+    # # 方式一：基于射线法
+    # import matplotlib.path as mplPath
+    # import numpy as np
+    # polygon = mplPath.Path(np.array(polygon_coords))
+    # return polygon.contains_point(point)
+
+	# # 方式二：基于射线法
+    # import cv2
+    # cv2.pointPolygonTest(np.array(polygon_coords),point,measureDist=False)
+    
+    # 方式三：基于环绕数法
+    from shapely.geometry import Point, Polygon
     point = Point(point_lon, point_lat)
     polygon = Polygon(polygon_coords)
     return polygon.contains(point)

@@ -17,7 +17,8 @@
 
 ➡ **工具合集链接**：
 
-1. 
+1. Map_generation_tool：[项目地址](https://github.com/xuenann/Map_generation_tool)、[算法介绍](https://github.com/xuenann/Tech-Cabin-Python/blob/main/%E5%B7%A5%E5%85%B7%E5%88%86%E4%BA%AB/1-Map_generation_tool/1-Map_generation_tool.md)
+   - 一个基于 **Django 框架** 开发的 Web 应用，目标是帮助用户将上传的 CSV 文件中的地理数据快速转换为可视化的互动地图。支持多种地图类型以及多种主流坐标系格式，让地图生成变得轻松快捷。
 
 
 
@@ -49,6 +50,7 @@
 
 1. 坐标系转换：[项目地址](https://github.com/xuenann/Tech-Cabin-Python/tree/main/%E7%AE%97%E6%B3%95%E5%88%86%E4%BA%AB/1-%E5%9D%90%E6%A0%87%E7%B3%BB%E8%BD%AC%E6%8D%A2)、[算法介绍](https://github.com/xuenann/Tech-Cabin-Python/blob/main/%E7%AE%97%E6%B3%95%E5%88%86%E4%BA%AB/1-%E5%9D%90%E6%A0%87%E7%B3%BB%E8%BD%AC%E6%8D%A2/1-%E5%9D%90%E6%A0%87%E7%B3%BB%E8%BD%AC%E6%8D%A2.md)
 1. geohash编码：[项目地址](https://github.com/xuenann/Tech-Cabin-Python/tree/main/%E7%AE%97%E6%B3%95%E5%88%86%E4%BA%AB/2-geohash%E7%BC%96%E7%A0%81)、[算法介绍](https://github.com/xuenann/Tech-Cabin-Python/blob/main/%E7%AE%97%E6%B3%95%E5%88%86%E4%BA%AB/2-geohash%E7%BC%96%E7%A0%81/2-geohash%E7%BC%96%E7%A0%81.md)
+1. R树索引：[项目地址](https://github.com/xuenann/Tech-Cabin-Python/tree/main/%E7%AE%97%E6%B3%95%E5%88%86%E4%BA%AB/3-R%E6%A0%91%E7%B4%A2%E5%BC%95)、[算法介绍](https://github.com/xuenann/Tech-Cabin-Python/blob/main/%E7%AE%97%E6%B3%95%E5%88%86%E4%BA%AB/3-R%E6%A0%91%E7%B4%A2%E5%BC%95/3-R%E6%A0%91%E7%B4%A2%E5%BC%95.md)
 
 
 
@@ -68,11 +70,14 @@
 
 <img src="README.assets\qrcode_for_gh_8be4598ab15d_1280.jpg" alt="qrcode_for_gh_8be4598ab15d_1280" width="30%" />
 
-你可以在公众号里得到：
+这里是我的个人知识分享空间。我会定期整理和分享工作与学习中积累的经验与资源，内容涵盖：
 
-- 更完整的图文讲解
-- 工具更新与使用教程
-- 数据资源的获取
+- 算法分享 —— 深入讲解算法原理、实现思路与代码示例。
+- 工具分享 —— 推荐实用工具与脚本，包括我个人开发的小工具和精选开源工具。
+- 开源项目 —— 精选 GitHub 上高星项目，拆解原理、使用方法和最佳实践。
+- 数据分享 —— 工作学习中收集整理的数据资源。
+
+无论你是技术爱好者、算法研究者，还是对数据与开源感兴趣的朋友，这里都希望能成为你学习、探索和实践的参考空间。
 
 若在阅读或使用过程中有任何疑问，欢迎在公众号私信我，我会尽快与您交流。
 
