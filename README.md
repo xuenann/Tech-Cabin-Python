@@ -19,6 +19,8 @@
 
 1. Map_generation_tool：[项目地址](https://github.com/xuenann/Map_generation_tool)、[算法介绍](https://github.com/xuenann/Tech-Cabin-Python/blob/main/%E5%B7%A5%E5%85%B7%E5%88%86%E4%BA%AB/1-Map_generation_tool/1-Map_generation_tool.md)
    - 一个基于 **Django 框架** 开发的 Web 应用，目标是帮助用户将上传的 CSV 文件中的地理数据快速转换为可视化的互动地图。支持多种地图类型以及多种主流坐标系格式，让地图生成变得轻松快捷。
+2. MUSICCA在线音乐学习平台：[平台地址](https://www.musicca.com/zh)、[平台介绍](https://github.com/xuenann/Tech-Cabin-Python/blob/main/%E5%B7%A5%E5%85%B7%E5%88%86%E4%BA%AB/2-Musicca/2-Musicca.md)
+   - 一款集合音乐理论、练习与工具于一身的在线学习平台，适合零基础新手、进阶学生、音乐教师甚至音乐爱好者长期使用。
 
 
 
