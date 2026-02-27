@@ -30,7 +30,7 @@
 
 ➡ **项目合集链接**：
 
-1. Stirling-PDF：[项目地址](https://github.com/Stirling-Tools/Stirling-PDF)，[项目介绍]()
+1. Stirling-PDF：[项目地址](https://github.com/Stirling-Tools/Stirling-PDF)，[项目介绍](https://github.com/xuenann/Tech-Cabin-Python/blob/main/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/1-Stirling-PDF/1-Stirling-PDF.md)
    - 一个支持自托管部署的开源全功能 PDF 处理平台，集成了合并、拆分、OCR、加密、转换等 50+ 操作能力，旨在用开源方案替代商业 PDF 工具。
 
 
@@ -52,8 +52,11 @@
 ➡ **算法合集链接**：[点击查看](https://github.com/xuenann/Tech-Cabin-Python/tree/main/算法分享)
 
 1. 坐标系转换：[项目地址](https://github.com/xuenann/Tech-Cabin-Python/tree/main/%E7%AE%97%E6%B3%95%E5%88%86%E4%BA%AB/1-%E5%9D%90%E6%A0%87%E7%B3%BB%E8%BD%AC%E6%8D%A2)、[算法介绍](https://github.com/xuenann/Tech-Cabin-Python/blob/main/%E7%AE%97%E6%B3%95%E5%88%86%E4%BA%AB/1-%E5%9D%90%E6%A0%87%E7%B3%BB%E8%BD%AC%E6%8D%A2/1-%E5%9D%90%E6%A0%87%E7%B3%BB%E8%BD%AC%E6%8D%A2.md)
+   - 系统梳理了WGS-84、GCJ-02、BD-09、CGCS2000及MapBar等主流坐标系的核心差异、应用场景与转换逻辑，旨在指导开发者在车联网、GIS及大数据处理中通过统一坐标标准（如计算用WGS-84、展示用对应地图坐标）来消除位置偏移误差，确保轨迹分析与多源数据融合的精准性。
 1. geohash编码：[项目地址](https://github.com/xuenann/Tech-Cabin-Python/tree/main/%E7%AE%97%E6%B3%95%E5%88%86%E4%BA%AB/2-geohash%E7%BC%96%E7%A0%81)、[算法介绍](https://github.com/xuenann/Tech-Cabin-Python/blob/main/%E7%AE%97%E6%B3%95%E5%88%86%E4%BA%AB/2-geohash%E7%BC%96%E7%A0%81/2-geohash%E7%BC%96%E7%A0%81.md)
+   - 深入解析了Geohash编码原理，阐述其如何通过二分法与Base32编码将二维经纬度转化为一维字符串，利用“前缀匹配”特性高效解决邻近搜索问题，同时分析了精度控制、边界效应（九宫格搜索）及主流Python工具库的应用，旨在帮助开发者掌握这一将复杂空间查询简化为文本处理的核心技术。
 1. R树索引：[项目地址](https://github.com/xuenann/Tech-Cabin-Python/tree/main/%E7%AE%97%E6%B3%95%E5%88%86%E4%BA%AB/3-R%E6%A0%91%E7%B4%A2%E5%BC%95)、[算法介绍](https://github.com/xuenann/Tech-Cabin-Python/blob/main/%E7%AE%97%E6%B3%95%E5%88%86%E4%BA%AB/3-R%E6%A0%91%E7%B4%A2%E5%BC%95/3-R%E6%A0%91%E7%B4%A2%E5%BC%95.md)
+   - 系统解析了地理空间中“点在多边形内（PIP）”判断的三种核心方案：从基础的全量遍历，到利用包围盒（Bounding Box）进行初步过滤，再到基于R树（STRtree）的空间索引加速；文章通过原理阐述、代码实现及性能对比，指导开发者根据多边形数据规模选择最优策略，以解决车联网、地理围栏等场景中大规模空间查询的性能瓶颈问题。
 
 
 
