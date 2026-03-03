@@ -95,7 +95,7 @@ D:\APP_root\python\python3.9.13\python.exe
 
    - `D:\APP_root\python\python3.10.11\python.exe`：为不同python版本的安装路径
    - `%*` ：会把所有参数传给真实的 Python
-   - bat文件下载地址：
+   - [bat文件下载地址](https://github.com/xuenann/Tech-Cabin-Python/tree/main/%E5%B7%A5%E5%85%B7%E5%88%86%E4%BA%AB/3-python%E5%AE%89%E8%A3%85%E5%8F%8A%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86)
 
    ```bat
    @echo off
@@ -191,7 +191,16 @@ pip install -r requirements.txt
 
 当虚拟环境多了以后，每次手动 cd + activate 非常麻烦。
 
-于是我写了一个一键切换虚拟环境的脚本 `switch_env.bat`，代码链接：
+于是我写了一个一键切换虚拟环境的脚本 `switch_env.bat`，[代码链接](https://github.com/xuenann/Tech-Cabin-Python/blob/main/%E5%B7%A5%E5%85%B7%E5%88%86%E4%BA%AB/3-python%E5%AE%89%E8%A3%85%E5%8F%8A%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86/switch_env.bat)
+
+```bat
+:: 下载后需要修改python环境目录
+:: ===============================
+:: 1. 设置虚拟环境根目录,
+::    将下面目录替换为您本地python环境的绝对路径
+:: ===============================
+set "VENV_ROOT=D:\APP_root\python_envs"
+```
 
 主要功能包括：
 

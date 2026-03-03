@@ -21,6 +21,8 @@
    - 一个基于 **Django 框架** 开发的 Web 应用，目标是帮助用户将上传的 CSV 文件中的地理数据快速转换为可视化的互动地图。支持多种地图类型以及多种主流坐标系格式，让地图生成变得轻松快捷。
 2. MUSICCA在线音乐学习平台：[平台地址](https://www.musicca.com/zh)、[平台介绍](https://github.com/xuenann/Tech-Cabin-Python/blob/main/%E5%B7%A5%E5%85%B7%E5%88%86%E4%BA%AB/2-Musicca/2-Musicca.md)
    - 一款集合音乐理论、练习与工具于一身的在线学习平台，适合零基础新手、进阶学生、音乐教师甚至音乐爱好者长期使用。
+3. python安装及虚拟环境管理：[项目地址](https://github.com/xuenann/Tech-Cabin-Python/tree/main/%E5%B7%A5%E5%85%B7%E5%88%86%E4%BA%AB/3-python%E5%AE%89%E8%A3%85%E5%8F%8A%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86)、[项目介绍](https://github.com/xuenann/Tech-Cabin-Python/blob/main/%E5%B7%A5%E5%85%B7%E5%88%86%E4%BA%AB/3-python%E5%AE%89%E8%A3%85%E5%8F%8A%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86/3-python%E5%AE%89%E8%A3%85%E5%8F%8A%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86.md)
+   - 系统梳理 **Python 的安装、环境变量配置、虚拟环境创建以及一键切换方案**，帮助你搭建一套清晰、稳定、可维护的开发环境。
 
 
 
