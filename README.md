@@ -23,6 +23,8 @@
    - 一款集合音乐理论、练习与工具于一身的在线学习平台，适合零基础新手、进阶学生、音乐教师甚至音乐爱好者长期使用。
 3. python安装及虚拟环境管理：[项目地址](https://github.com/xuenann/Tech-Cabin-Python/tree/main/%E5%B7%A5%E5%85%B7%E5%88%86%E4%BA%AB/3-python%E5%AE%89%E8%A3%85%E5%8F%8A%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86)、[项目介绍](https://github.com/xuenann/Tech-Cabin-Python/blob/main/%E5%B7%A5%E5%85%B7%E5%88%86%E4%BA%AB/3-python%E5%AE%89%E8%A3%85%E5%8F%8A%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86/3-python%E5%AE%89%E8%A3%85%E5%8F%8A%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86.md)
    - 系统梳理 **Python 的安装、环境变量配置、虚拟环境创建以及一键切换方案**，帮助你搭建一套清晰、稳定、可维护的开发环境。
+4. uv：Python 新一代包管理工具：[项目地址](https://github.com/astral-sh/uv)、[项目文档](https://uv.doczh.com/)、[项目介绍](https://github.com/xuenann/Tech-Cabin-Python/blob/main/%E5%B7%A5%E5%85%B7%E5%88%86%E4%BA%AB/4-uv/4-uv.md)
+   - 系统介绍 Python 新一代包管理工具 **uv**，带你快速掌握其安装、虚拟环境管理、依赖管理及项目管理等核心用法。
 
 
 
