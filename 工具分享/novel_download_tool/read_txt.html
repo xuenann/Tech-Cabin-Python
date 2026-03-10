@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>小说排版阅读器</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #1a1a2e;
+      color: #e0d7c6;
+      font-family: "Georgia", "Noto Serif SC", serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      font-size: 1.6rem;
+      letter-spacing: 0.1em;
+      margin-bottom: 8px;
+      color: #f0c97f;
+    }
+
+    .subtitle {
+      font-size: 0.85rem;
+      color: #888;
+      margin-bottom: 30px;
+    }
+
+    /* 上传区域 */
+    .upload-area {
+      width: 100%;
+      max-width: 680px;
+      border: 2px dashed #4a4a6a;
+      border-radius: 14px;
+      padding: 40px 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: border-color 0.3s, background 0.3s;
+      background: #16213e;
+      margin-bottom: 24px;
+    }
+
+    .upload-area:hover,
+    .upload-area.dragover {
+      border-color: #f0c97f;
+      background: #1e2a50;
+    }
+
+    .upload-area .icon {
+      font-size: 2.5rem;
+      margin-bottom: 12px;
+    }
+
+    .upload-area p {
+      color: #aaa;
+      font-size: 0.95rem;
+    }
+
+    .upload-area span {
+      color: #f0c97f;
+      font-weight: bold;
+    }
+
+    #fileInput {
+      display: none;
+    }
+
+    /* 工具栏 */
+    .toolbar {
+      display: none;
+      width: 100%;
+      max-width: 680px;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .toolbar.visible {
+      display: flex;
+    }
+
+    .toolbar label {
+      font-size: 0.85rem;
+      color: #aaa;
+    }
+
+    .toolbar input[type="range"] {
+      accent-color: #f0c97f;
+      cursor: pointer;
+    }
+
+    .toolbar select {
+      background: #16213e;
+      color: #e0d7c6;
+      border: 1px solid #4a4a6a;
+      border-radius: 6px;
+      padding: 4px 10px;
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
+
+    .btn {
+      padding: 6px 16px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      font-size: 0.85rem;
+      transition: background 0.2s;
+    }
+
+    .btn-primary {
+      background: #f0c97f;
+      color: #1a1a2e;
+      font-weight: bold;
+    }
+
+    .btn-primary:hover {
+      background: #f5d99a;
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: #aaa;
+      border: 1px solid #4a4a6a;
+    }
+
+    .btn-ghost:hover {
+      background: #2a2a4a;
+      color: #e0d7c6;
+    }
+
+    /* 文章容器 */
+    #output {
+      width: 100%;
+      max-width: 680px;
+      display: none;
+    }
+
+    #output.visible {
+      display: block;
+    }
+
+    .novel-content {
+      background: #16213e;
+      border-radius: 14px;
+      padding: 36px 40px;
+      line-height: 2;
+    }
+
+    .novel-sentence {
+      display: block;
+      margin-bottom: 1.2em; /* 句间空行 */
+      text-indent: 0;
+      word-break: break-all;
+    }
+
+    /* 章节标题识别 */
+    .novel-chapter {
+      display: block;
+      color: #f0c97f;
+      font-size: 1.1em;
+      font-weight: bold;
+      margin: 1.8em 0 0.8em;
+      text-align: center;
+      letter-spacing: 0.12em;
+    }
+
+    /* 文件名标签 */
+    .filename-tag {
+      font-size: 0.8rem;
+      color: #666;
+      margin-bottom: 16px;
+      padding-left: 4px;
+    }
+
+    /* 进度条 */
+    #progress {
+      display: none;
+      width: 100%;
+      max-width: 680px;
+      margin-bottom: 16px;
+    }
+
+    #progress.visible {
+      display: block;
+    }
+
+    #progressBar {
+      width: 100%;
+      height: 4px;
+      background: #2a2a4a;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    #progressFill {
+      height: 100%;
+      background: #f0c97f;
+      width: 0%;
+      transition: width 0.2s;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>小说排版阅读器</h1>
+  <p class="subtitle">上传 TXT 文件，自动按句号分行，一句一段，轻松阅读</p>
+
+  <!-- 上传区 -->
+  <div class="upload-area" id="uploadArea">
+    <div class="icon">📖</div>
+    <p>拖拽 TXT 文件到此处，或 <span>点击选择文件</span></p>
+    <p style="margin-top:8px; font-size:0.78rem; color:#555;">支持 UTF-8 / GBK 编码</p>
+    <input type="file" id="fileInput" accept=".txt" />
+  </div>
+
+  <!-- 进度条 -->
+  <div id="progress">
+    <div id="progressBar"><div id="progressFill"></div></div>
+  </div>
+
+  <!-- 工具栏 -->
+  <div class="toolbar" id="toolbar">
+    <label>字号：<input type="range" id="fontSize" min="14" max="26" value="18" step="1" /></label>
+    <label>行距：<input type="range" id="lineHeight" min="16" max="28" value="20" step="1" /></label>
+    <label>主题：
+      <select id="themeSelect">
+        <option value="dark">暗夜</option>
+        <option value="parchment">羊皮纸</option>
+        <option value="light">明亮</option>
+      </select>
+    </label>
+    <button class="btn btn-ghost" id="reloadBtn">重新上传</button>
+  </div>
+
+  <!-- 输出区 -->
+  <div id="output">
+    <div class="filename-tag" id="filenameTag"></div>
+    <div class="novel-content" id="novelContent"></div>
+  </div>
+
+  <script>
+    const uploadArea = document.getElementById('uploadArea');
+    const fileInput  = document.getElementById('fileInput');
+    const output     = document.getElementById('output');
+    const toolbar    = document.getElementById('toolbar');
+    const novelContent = document.getElementById('novelContent');
+    const filenameTag  = document.getElementById('filenameTag');
+    const progress     = document.getElementById('progress');
+    const progressFill = document.getElementById('progressFill');
+    const fontSizeSlider  = document.getElementById('fontSize');
+    const lineHeightSlider= document.getElementById('lineHeight');
+    const themeSelect  = document.getElementById('themeSelect');
+    const reloadBtn    = document.getElementById('reloadBtn');
+
+    // 主题配置
+    const themes = {
+      dark:      { bg: '#1a1a2e', card: '#16213e', text: '#e0d7c6' },
+      parchment: { bg: '#f5efe0', card: '#fdf6e3', text: '#4a3728' },
+      light:     { bg: '#f0f2f5', card: '#ffffff',  text: '#2c2c2c' }
+    };
+
+    function applyTheme(name) {
+      const t = themes[name];
+      document.body.style.background = t.bg;
+      document.body.style.color = t.text;
+      document.querySelectorAll('.novel-content').forEach(el => {
+        el.style.background = t.card;
+        el.style.color = t.text;
+      });
+    }
+
+    themeSelect.addEventListener('change', () => applyTheme(themeSelect.value));
+
+    fontSizeSlider.addEventListener('input', () => {
+      novelContent.style.fontSize = fontSizeSlider.value + 'px';
+    });
+
+    lineHeightSlider.addEventListener('input', () => {
+      const lh = (lineHeightSlider.value / 10).toFixed(1);
+      novelContent.style.lineHeight = lh;
+    });
+
+    reloadBtn.addEventListener('click', () => {
+      output.classList.remove('visible');
+      toolbar.classList.remove('visible');
+      uploadArea.style.display = '';
+      fileInput.value = '';
+      novelContent.innerHTML = '';
+    });
+
+    // 拖拽
+    uploadArea.addEventListener('dragover', e => {
+      e.preventDefault();
+      uploadArea.classList.add('dragover');
+    });
+    uploadArea.addEventListener('dragleave', () => uploadArea.classList.remove('dragover'));
+    uploadArea.addEventListener('drop', e => {
+      e.preventDefault();
+      uploadArea.classList.remove('dragover');
+      const file = e.dataTransfer.files[0];
+      if (file && file.name.endsWith('.txt')) processFile(file);
+    });
+
+    uploadArea.addEventListener('click', () => fileInput.click());
+    fileInput.addEventListener('change', () => {
+      if (fileInput.files[0]) processFile(fileInput.files[0]);
+    });
+
+    // 章节标题正则（第X章 / 第X回 / 纯数字章节 等）
+    const chapterReg = /^(第[零一二三四五六七八九十百千万\d]+[章回节集卷][\s\S]{0,30}|[【\[（(]?第?\d+[章回节][\s\S]{0,30}|序章|楔子|尾声|番外[\s\S]{0,20})$/;
+
+    function processFile(file) {
+      filenameTag.textContent = '📄 ' + file.name;
+      uploadArea.style.display = 'none';
+
+      progress.classList.add('visible');
+      progressFill.style.width = '0%';
+
+      // 尝试 UTF-8，失败则 GBK
+      const reader = new FileReader();
+      reader.onload = e => {
+        let text = e.target.result;
+        // 如果包含乱码特征字符，尝试 GBK
+        if (/\ufffd/.test(text)) {
+          const reader2 = new FileReader();
+          reader2.onload = e2 => renderText(e2.target.result, file.name);
+          reader2.readAsText(file, 'GBK');
+        } else {
+          renderText(text, file.name);
+        }
+      };
+      reader.readAsText(file, 'UTF-8');
+    }
+
+    function renderText(text, filename) {
+      progressFill.style.width = '40%';
+
+      // 按换行拆段落
+      const rawLines = text.split(/\r?\n/);
+      const fragment = document.createDocumentFragment();
+
+      let processed = 0;
+      const total = rawLines.length;
+
+      rawLines.forEach(line => {
+        line = line.trim();
+        if (!line) return;
+
+        // 识别章节标题
+        if (chapterReg.test(line)) {
+          const el = document.createElement('span');
+          el.className = 'novel-chapter';
+          el.textContent = line;
+          fragment.appendChild(el);
+          return;
+        }
+
+        // 按句号（。！？…… 等）分句
+        // 保留标点在句末
+        const sentences = splitBySentence(line);
+        sentences.forEach(s => {
+          if (!s.trim()) return;
+          const el = document.createElement('span');
+          el.className = 'novel-sentence';
+          el.textContent = s.trim();
+          fragment.appendChild(el);
+        });
+
+        processed++;
+        progressFill.style.width = Math.min(40 + (processed / total * 55), 95) + '%';
+      });
+
+      novelContent.innerHTML = '';
+      novelContent.appendChild(fragment);
+      novelContent.style.fontSize = fontSizeSlider.value + 'px';
+      novelContent.style.lineHeight = (lineHeightSlider.value / 10).toFixed(1);
+
+      progressFill.style.width = '100%';
+      setTimeout(() => {
+        progress.classList.remove('visible');
+        progressFill.style.width = '0%';
+        output.classList.add('visible');
+        toolbar.classList.add('visible');
+        applyTheme(themeSelect.value);
+      }, 300);
+    }
+
+    // 分句：按 。！？…… 等断句，保留标点
+    function splitBySentence(line) {
+      // 匹配句末标点（含引号、括号收尾）
+      const result = [];
+      // 用正则找到每个句子结束位置
+      const reg = /[^。！？…\n]+[。！？…]+["'）」』]*/g;
+      let match;
+      let lastIndex = 0;
+
+      while ((match = reg.exec(line)) !== null) {
+        result.push(match[0]);
+        lastIndex = reg.lastIndex;
+      }
+
+      // 剩余没有句末标点的部分（如最后一句没有句号）
+      if (lastIndex < line.length) {
+        const tail = line.slice(lastIndex).trim();
+        if (tail) result.push(tail);
+      }
+
+      // 如果完全没匹配到（整行无标点），整行作为一句
+      if (result.length === 0) result.push(line);
+
+      return result;
+    }
+  </script>
+</body>
+</html>
